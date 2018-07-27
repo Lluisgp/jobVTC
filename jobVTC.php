@@ -16,3 +16,6 @@ defined('ABSPATH') or die('No direct access! Bad user!');
 //INSTALLER
 require("jobVTC_installer.php"); // User panel widget
 
+register_activation_hook(__FILE__, 'jobVTC_install');
+register_deactivation_hook(__FILE__, 'jobVTC_remove');
+

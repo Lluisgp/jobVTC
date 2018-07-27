@@ -37,12 +37,13 @@ function jobVTC_install() {
         `repaircosts` INT NOT NULL,
         `travelcosts` INT NOT NULL,
 
-        `approved` BOOLEAN NOT NULL DEFAULT FALSE,        
-        `approvedtime` DATETIME NOT NULL DEFAULT "0000-00-00 00:00:00",
-
         `addedtime` DATETIME NOT NULL,
 
-        `divid` BIGINT NOT NULL DEFAULT 0,
+        `acceptedtime` DATETIME NOT NULL,
+
+        `approved` BOOLEAN NOT NULL DEFAULT FALSE,        
+        `approvedtime` DATETIME NOT NULL DEFAULT "0000-00-00 00:00:00",
+        
         PRIMARY KEY (`jobid`))
         ' . $collate;
 
@@ -53,7 +54,7 @@ function jobVTC_install() {
     }
 }
 
-function wolfvtc_remove() {
+function jobVTC_remove() {
     global $wpdb;
 
     //Options
