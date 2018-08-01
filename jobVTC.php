@@ -19,3 +19,7 @@ require("jobVTC_installer.php"); // User panel widget
 register_activation_hook(__FILE__, 'jobVTC_install');
 register_deactivation_hook(__FILE__, 'jobVTC_remove');
 
+
+//ADMIN DASH PAGES
+require("jobVTC_admin_front.php"); // Admin dash WolfVTC front page
+
