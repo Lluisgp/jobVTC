@@ -4,24 +4,35 @@ defined('ABSPATH') or die('No direct access! Bad user!');
 
 add_action('admin_menu', 'jobVTC_admin_menu');
 
-
-
+/**
+ * Function to add option on admin menu
+ */
 function jobVTC_admin_menu() {
     //add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function = '', $icon_url = '', $position = null )
     add_menu_page('jobVTC Admin', 'jobVTC Admin', 'read', 'jobvtcadmin', 'jobvtc_admin_front', "", 999);
 }
 
+/**
+ * Main function
+ * @global type $wpdb
+ */
 function jobvtc_admin_front() {
     global $wpdb;
     echo '<script type="text/javascript" src="'.plugin_dir_url(__FILE__).'/js/jobVTC_admin_front.js"></script>';
-    echo '<script type="text/javascript">var ruta ="'.plugin_dir_url(__FILE__).'"</script>';
+    //echo '<script type="text/javascript">var ruta ="'.plugin_dir_url(__FILE__).'"</script>';
+    echo '<script type="text/javascript">var ruta ="'.admin_url('admin-ajax.php').'"</script>';
+    
+    //echo admin_url('admin-ajax.php');
+    
     echo '<div class="wrap">
         <h1>Job VTC Admin Panel</h1>';
     jobvtc_admin_front_city();
     jobvtc_admin_front_cargo();
     echo '</div>';
 }
-
+/**
+ * Funtion to add city management
+ */
 function jobvtc_admin_front_city() {
     //Title
     echo '<h2>City Admin</h2><label><span class="title">';
@@ -51,7 +62,9 @@ function jobvtc_admin_front_city() {
         <td id="jobCargoId" class="manage-column column-cb check-column"><input id="cb-select" type="checkbox"></td><th scope="col" id="jobCargoName" class="manage-column column-title column-primary sortable desc"><a href="http://localhost/wordpress/wp-admin/edit.php?orderby=title&amp;order=asc"><span>Name</span><span class="sorting-indicator"></span></a></th><th scope="col" id="jobCargoDLC" class="manage-column column-author">DLC</th>
         </thead></tfoot></table>';
 }
-
+/**
+ * Function to add cargo management
+ */
 function jobvtc_admin_front_cargo() {
     echo '<h2>Cargo Admin</h2><label><span class="title">';
     echo '<form id="insert_cargo" method="get">Add a new cargo, insert the name: </span><span class="input-text-wrap"><input type="text" name="new_cargo_name" class="ptitle" value=""></span></label><label><span class="title"> insert the DLC </span><span class="input-text-wrap"><input type="text" name="new_cargo_dlc" class="ptitle" value=""></span></label><input type="submit" id="addCity" class="button action" value="Add"></form>';
@@ -77,7 +90,10 @@ function jobvtc_admin_front_cargo() {
         <td id="jobCargoId" class="manage-column column-cb check-column"><input id="cb-select" type="checkbox"></td><th scope="col" id="jobCargoName" class="manage-column column-title column-primary sortable desc"><a href="http://localhost/wordpress/wp-admin/edit.php?orderby=title&amp;order=asc"><span>Name</span><span class="sorting-indicator"></span></a></th><th scope="col" id="jobCargoDLC" class="manage-column column-author">DLC</th>
         </thead></tfoot></table></div>';
 }
-
+/**
+ * Deprecated for example
+ * @global type $wpdb
+ */
 function jobvtc_admin_front2() {
     global $wpdb;
 

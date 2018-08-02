@@ -21,5 +21,7 @@ register_deactivation_hook(__FILE__, 'jobVTC_remove');
 
 
 //ADMIN DASH PAGES
-require("jobVTC_admin_front.php"); // Admin dash WolfVTC front page
+require("jobVTC_admin_front.php"); // Admin dash jobVTC front page
 
+//CONTROLLER
+require("jobVTC_controller_ajax.php"); // Test Ajax Controller

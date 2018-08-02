@@ -13,14 +13,14 @@ function jobVTC_install() {
         `cargoid` BIGINT NOT NULL AUTO_INCREMENT,
         `cargoname` TEXT NOT NULL,
         `dlc` TEXT NOT NULL,
-        PRIMARY KEY (`cargoid`))
+        PRIMARY KEY (`cargoid`))        
         ' . $collate;
 
     $queries[1] = 'CREATE TABLE ' . $prefix . 'cities ( 
         `cityid` BIGINT NOT NULL AUTO_INCREMENT,
         `cityname` TEXT NOT NULL,
-        `dlc` TEXT NOT NULL,
-        PRIMARY KEY (`cityid`))
+        `dlc` TEXT NOT NULL,        
+        PRIMARY KEY (`cityid`))        
         ' . $collate;
 
     $queries[2] = 'CREATE TABLE ' . $prefix . 'jobs ( 
@@ -29,7 +29,7 @@ function jobVTC_install() {
 
         `fromcity` BIGINT NOT NULL,
         `tocity` BIGINT NOT NULL,
-        `cargo` BIGINT NOT NULL,
+        `cargo` BIGINT NOT NULL ,
 
         `distance` INT NOT NULL,
         `earnings` INT NOT NULL,
